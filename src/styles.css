@@ -94,10 +94,15 @@
     color: #0378d5;
 }
 
-.e-dlg-content {
+/* .e-dlg-content {
     color: #0378d5 !important;
 }
+ */
 
+ .e-calendar .e-content td.e-today.e-selected:hover span.e-day, .e-calendar .e-content td.e-selected:hover span.e-day, .e-calendar .e-content td.e-selected.e-focused-date span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-today.e-selected:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-selected:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-selected.e-focused-date span.e-day {
+    background-color: #0378d5;
+    color: #fff;
+}
 
 .e-schedule .e-month-view .e-current-date .e-date-header, .e-schedule .e-month-agenda-view .e-current-date .e-date-header {
     background-color: #0378d5;
