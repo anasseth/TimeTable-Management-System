@@ -18,12 +18,19 @@
 
 
 
+<div class="header">
+  <div class="header-right">
+    <a>Students</a>
+    <a>Courses</a>
+    <!-- <a >About</a> -->
+  </div>
+  <a class="logo">Logout</a>
 
+</div>
 
 <div class="control-section">
   <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
-    [selectedDate]="selectedDate" [eventSettings]="eventSettings" [currentView]="currentView"
-    (popupOpen)="onPopupOpen($event)">
+    [selectedDate]="selectedDate" [currentView]="currentView" (popupOpen)="onPopupOpen($event)">
     <e-views>
       <e-view option="Day"></e-view>
       <e-view option="Week"></e-view>
@@ -31,9 +38,18 @@
       <e-view option="Month"></e-view>
     </e-views>
     <e-resources>
-      <e-resource field='ConferenceId' title='Attendees' name='Conferences' [dataSource]='resourceDataSource'
+      <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSourceType'
         textField='Text' idField='Id' colorField='Color'>
       </e-resource>
+      <!-- <e-resource field='ConferenceId1' title='Teacher / Prefessor' name='Conferences1'
+        [dataSource]='resourceDataSourceTeacher' textField='Text1' idField='Id1' colorField='Color1'>
+      </e-resource>
+      <e-resource field='ConferenceId2' title='Course' name='Conferences2' [dataSource]='resourceDataSourceCourse'
+        textField='Text2' idField='Id2' colorField='Color2'>
+      </e-resource>
+      <e-resource field='ConferenceId3' title='Room ' name='Conferences3' [dataSource]='resourceDataSourceRoom'
+        textField='Text3' idField='Id3' colorField='Color3'>
+      </e-resource> -->
     </e-resources>
   </ejs-schedule>
 </div>
@@ -66,15 +82,23 @@
 <!-- <ejs-schedule width='100%' height='550px' [selectedDate]="selectedDate"
   [eventSettings]="eventSettings" > </ejs-schedule>` -->
 
+
+
 <!-- <ejs-schedule width='100%' height='100vh' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
   [showQuickInfo]='showQuickInfo' (popupOpen)='onPopupOpen($event)'>
   <ng-template #editorTemplate>
     <table class="custom-event-editor" width="100%" cellpadding="5">
       <tbody>
+
+        <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSource'
+        textField='Text' idField='Id' colorField='Color'>
+      </e-resource>
         <tr>
           <td class="e-textlabel">Type</td>
           <td colspan="4">
             <input type="text" id="EventType" name="EventType" class="e-field" style="width: 100%" />
+
+            
           </td>
         </tr>
         <tr>
@@ -122,9 +146,7 @@
             <input id="EndTime" class="e-field" type="text" name="EndTime" />
           </td>
         </tr>
-        <e-resource field='ConferenceId' title='Attendees' name='Conferences' [dataSource]='resourceDataSource'
-          textField='Text' idField='Id' colorField='Color'>
-        </e-resource>
+     
 
       </tbody>
     </table>

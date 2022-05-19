@@ -12,6 +12,10 @@
 
 
 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .e-recurrenceeditor .e-input-wrapper {
     float  : left;
