@@ -1,0 +1,132 @@
+<!-- 
+<ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
+  (popupOpen)='onPopupOpen($event)'>
+
+  <e-views>
+    <e-view option="Day"></e-view>
+    <e-view option="Week">
+    </e-view>
+    <e-view option="Month"></e-view>
+    <e-view option="Agenda"></e-view>
+  </e-views>
+  <e-resources>
+    <e-resource field='GroupId' title='Owner' name='Owners' [dataSource]='dataSource' textField='GroupText'
+      idField='GroupId' colorField='GroupColor'>
+    </e-resource>
+  </e-resources>
+</ejs-schedule> -->
+
+
+
+
+
+<div class="control-section">
+  <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
+    [selectedDate]="selectedDate" [eventSettings]="eventSettings" [currentView]="currentView"
+    (popupOpen)="onPopupOpen($event)">
+    <e-views>
+      <e-view option="Day"></e-view>
+      <e-view option="Week"></e-view>
+      <e-view option="WorkWeek"></e-view>
+      <e-view option="Month"></e-view>
+    </e-views>
+    <e-resources>
+      <e-resource field='ConferenceId' title='Attendees' name='Conferences' [dataSource]='resourceDataSource'
+        textField='Text' idField='Id' colorField='Color'>
+      </e-resource>
+    </e-resources>
+  </ejs-schedule>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ejs-schedule width='100%' height='550px' [selectedDate]="selectedDate"
+  [eventSettings]="eventSettings" > </ejs-schedule>` -->
+
+<!-- <ejs-schedule width='100%' height='100vh' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
+  [showQuickInfo]='showQuickInfo' (popupOpen)='onPopupOpen($event)'>
+  <ng-template #editorTemplate>
+    <table class="custom-event-editor" width="100%" cellpadding="5">
+      <tbody>
+        <tr>
+          <td class="e-textlabel">Type</td>
+          <td colspan="4">
+            <input type="text" id="EventType" name="EventType" class="e-field" style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">Course</td>
+          <td colspan="4">
+            <input id="Course" class="e-field e-input" type="text" value="" name="Course" style="width: 100%"
+              placeholder="Course" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">Course Code</td>
+          <td colspan="4">
+            <input id="Course Code" class="e-field e-input" type="text" value="" name="Course Code"
+              style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">Teacher</td>
+          <td colspan="4">
+            <input id="Teacher" class="e-field e-input" type="text" value="" name="Teacher" style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">Subject</td>
+          <td colspan="4">
+            <input id="Subject" class="e-field e-input" type="text" value="" name="Subject" style="width: 100%" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="e-textlabel">Agenda</td>
+          <td colspan="4">
+            <input id="Agenda" class="e-field e-input" type="text" value="" name="Agenda" style="width: 100%" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">From</td>
+          <td colspan="4">
+            <input id="StartTime" class="e-field" type="text" name="StartTime" />
+          </td>
+        </tr>
+        <tr>
+          <td class="e-textlabel">To</td>
+          <td colspan="4">
+            <input id="EndTime" class="e-field" type="text" name="EndTime" />
+          </td>
+        </tr>
+        <e-resource field='ConferenceId' title='Attendees' name='Conferences' [dataSource]='resourceDataSource'
+          textField='Text' idField='Id' colorField='Color'>
+        </e-resource>
+
+      </tbody>
+    </table>
+  </ng-template>
+</ejs-schedule> -->
