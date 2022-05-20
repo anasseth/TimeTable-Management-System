@@ -161,3 +161,33 @@ body {
     position: relative !important;
     top     : 40px !important;
 } */
+
+
+/* popup card header crud btn color */
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-edit:focus,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-edit:hover,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-delete:focus,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-delete:hover,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-close:focus,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color     : black !important;
+}
+
+
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-edit,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-delete,
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-close {
+    color: #000;
+}
+
+/* popup card header title color */
+
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-subject-wrap .e-subject {
+    cursor     : default;
+    font-size  : 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    max-height : 87px;
+    color      : #000;
+}
