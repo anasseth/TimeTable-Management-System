@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
   (popupOpen)='onPopupOpen($event)'>
 
@@ -30,19 +30,19 @@
 
 <div class="control-section">
   <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
-    [selectedDate]="selectedDate" [currentView]="currentView" (popupOpen)="onPopupOpen($event)">
+    [selectedDate]="selectedDate" [workHours]="scheduleHours" [showWeekend]="showWeekend" [eventSettings]='eventSettings' [currentView]="currentView" (popupOpen)="onPopupOpen($event)">
     <e-views>
       <e-view option="Day"></e-view>
       <e-view option="Week"></e-view>
       <e-view option="WorkWeek"></e-view>
       <e-view option="Month"></e-view>
     </e-views>
-    <e-resources>
-      <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSourceType'
+    <!-- <e-resources>
+      <e-resource field='ConferenceId' title='Type' name='Conferences'
         textField='Text' idField='Id' colorField='Color'>
-      </e-resource>
+      </e-resource> -->
 
-    </e-resources>
+    <!-- </e-resources> -->
   </ejs-schedule>
 </div>
 
