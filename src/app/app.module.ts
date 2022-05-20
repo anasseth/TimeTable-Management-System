@@ -8,6 +8,9 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { CreateformComponent } from './createform/createform.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule,MatInputModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { CreateformComponent } from './createform/createform.component';
   ],
   imports: [
     BrowserModule, ScheduleModule, TimePickerModule,
-    AppRoutingModule
+    AppRoutingModule,BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,MatFormFieldModule,MatInputModule 
   ],
   providers: [DayService,
     WeekService,
