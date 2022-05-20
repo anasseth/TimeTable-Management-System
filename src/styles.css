@@ -145,10 +145,10 @@ body {
 }
 
 /* input field hide */
-.e-float-input:not(.e-input-group),
+/* .e-float-input:not(.e-input-group),
 .e-float-input.e-control-wrapper:not(.e-input-group) {
     display: none;
-}
+} */
 
 .e-schedule .e-vertical-view .e-day-wrapper .e-appointment .e-appointment-details {
     flex      : auto;
@@ -190,4 +190,8 @@ body {
     line-height: 1.5;
     max-height : 87px;
     color      : #000;
+}
+
+vertical-view .e-current-time {
+    color: #0378d5 !important;
 }

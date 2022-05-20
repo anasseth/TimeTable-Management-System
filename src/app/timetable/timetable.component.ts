@@ -59,27 +59,30 @@ export class TimetableComponent implements OnInit {
   ];
 
   public resourceDataSourceTeacher: Object[] = [
-    { Text: "tom", Id: 1 },
-    { Text: "danial", Id: 2 },
-    { Text: "john", Id: 3 },
-    { Text: "jeef", Id: 4 },
-    { Text: "adam", Id: 4 },
+    { Text: "Prof. Tom Hall", Id: 1 },
+    { Text: "Prof. John Den", Id: 2 },
+    { Text: "Prof. Daniel J. Post", Id: 3 },
+    { Text: "Prof. Walter M. Espinal", Id: 4 },
+    { Text: "Assistant Prof. Don S. Croteau", Id: 4 },
   ];
 
   public resourceDataSourceCourse: Object[] = [
-    { Text: "math", Id: 1 },
-    { Text: "physics", Id: 2 },
-    { Text: "chemistry", Id: 3 },
-    { Text: "english", Id: 4 },
-    { Text: "geaometry", Id: 5 },
+    { Text: "Introduction To Financial Accounting", Id: 1 },
+    { Text: "Probablity & Stats", Id: 2 },
+    { Text: "GeoEconomics", Id: 3 },
+    { Text: "Natural Language Processing", Id: 4 },
+    { Text: "Networking Data Layer", Id: 5 },
   ];
 
   public resourceDataSourceRoom: Object[] = [
-    { Text: "Room 1", Id: 1 },
-    { Text: "Rom 2", Id: 2 },
-    { Text: "Room 3", Id: 3 },
-    { Text: "Room 4", Id: 4 },
-    { Text: "Room 5", Id: 5 },
+    { Text: "Room# 54", Id: 1 },
+    { Text: "Room# 55", Id: 2 },
+    { Text: "Room# 56", Id: 3 },
+    { Text: "Room# 57", Id: 4 },
+    { Text: "Room# 58", Id: 5 },
+    { Text: "Auditorium Hall", Id: 6 },
+    { Text: "Computational Lab# 1", Id: 7 },
+    { Text: "Computational Lab# 2", Id: 8 },
   ];
 
   // public group: GroupModel = { resources: ['Conferences'] };
@@ -99,46 +102,44 @@ export class TimetableComponent implements OnInit {
   ngOnInit() { }
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === "Editor") {
-      if (!args.element.querySelector(".custom-field-row")) {
-        let row: HTMLElement = createElement("div", {
-          className: "custom-field-row",
-        });
-        let formElement: HTMLElement =
-          args.element.querySelector(".e-schedule-form");
-        formElement.firstChild.insertBefore(
-          row,
-          args.element.querySelector(".e-title-location-row")
-        );
-        let container: HTMLElement = createElement("div", {
-          className: "custom-field-container",
-        });
-        let inputEle: HTMLInputElement = createElement("input", {
-          className: "e-field",
-          attrs: { name: "EventType" },
-        }) as HTMLInputElement;
-        container.appendChild(inputEle);
-        row.appendChild(container);
-        let dropDownList: DropDownList = new DropDownList({
-          dataSource: [
-            { text: "John", value: "John" },
-            { text: "Adam", value: "Adam" },
-            { text: "philip", value: "philip" },
-            { text: "jeff", value: "jeff" },
-            { text: "Bezoz", value: "Bezoz" },
-
-          ],
-          fields: { text: "text", value: "value" },
-          value: (<{ [key: string]: Object }>args.data).EventType as string,
-          floatLabelType: "Always",
-          placeholder: "Teacher",
-        });
-
-        dropDownList.appendTo(inputEle);
-        inputEle.setAttribute("name", "EventType");
-
-      }
+      this.createCustomDropdown(args, this.resourceDataSourceTeacher, "Text", "Id", "Teacher")
+      this.createCustomDropdown(args, this.resourceDataSourceRoom, "Text", "Id", "Room/Hall")
+      this.createCustomDropdown(args, this.resourceDataSourceCourse, "Text", "Id", "Course")
 
     }
+  }
+
+  createCustomDropdown(args, dataSource, propName1, propName2, dropDownName) {
+    console.log(args)
+
+    let row: HTMLElement = createElement("div", {
+      className: "custom-field-row",
+    });
+    let formElement: HTMLElement =
+      args.element.querySelector(".e-schedule-form");
+    formElement.firstChild.insertBefore(
+      row,
+      args.element.querySelector(".e-title-location-row")
+    );
+    let container: HTMLElement = createElement("div", {
+      className: "custom-field-container",
+    });
+    let inputEle: HTMLInputElement = createElement("input", {
+      className: "e-field",
+      attrs: { name: "EventType" },
+    }) as HTMLInputElement;
+    container.appendChild(inputEle);
+    row.appendChild(container);
+    let dropDownList: DropDownList = new DropDownList({
+      dataSource: dataSource,
+      fields: { text: propName1, value: propName2 },
+      value: (<{ [key: string]: Object }>args.data).EventType as string,
+      floatLabelType: "Always",
+      placeholder: dropDownName,
+    });
+
+    dropDownList.appendTo(inputEle);
+    inputEle.setAttribute("name", "EventType");
 
   }
 
