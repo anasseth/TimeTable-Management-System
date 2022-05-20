@@ -7,15 +7,18 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimetableComponent
+    TimetableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, ScheduleModule, TimePickerModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule
   ],
   providers: [DayService,
     WeekService,

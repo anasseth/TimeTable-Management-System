@@ -82,6 +82,10 @@ td.e-work-cells.e-work-hours {
   background-color: 	#cfeffc !important;
 }
 
+/* td.e-time-cells.e-time-slots {
+  height: 100px !important;
+} */
+
 .e-appointment-details {
   color: white !important;
 }

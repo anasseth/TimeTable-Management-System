@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: "home", pathMatch: 'full' },
-  // { path: 'home', component: TimetableComponent },
-
-
-
+{
+  path:"",
+  component:LoginComponent
+},
+{
+  path:"timetable",
+  component:TimetableComponent
+}
 ];
 
 @NgModule({
