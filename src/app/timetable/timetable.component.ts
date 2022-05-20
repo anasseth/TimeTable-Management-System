@@ -164,7 +164,9 @@ export class TimetableComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateformComponent, {
-      width: "250px",
+      width: "500px",
+      height: "500px",
+
       data: {},
     });
 

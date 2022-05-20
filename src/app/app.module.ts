@@ -21,6 +21,8 @@ import {
   MatCheckboxModule,
   MatInputModule,
   MatDialogModule,
+  MatChipsModule,
+  MatTabsModule,
 } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material/form-field";
 
@@ -33,11 +35,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
+    MatChipsModule,
+    MatTabsModule,
   ],
   providers: [
     DayService,
