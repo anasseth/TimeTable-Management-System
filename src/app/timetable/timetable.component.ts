@@ -19,6 +19,9 @@ import { createElement } from "@syncfusion/ej2-base";
 import { DateTimePicker } from "@syncfusion/ej2-angular-calendars";
 import { text } from "@angular/core/src/render3";
 import { L10n } from "@syncfusion/ej2-base";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { CreateformComponent } from "../createform/createform.component";
+
 L10n.load({
   "en-US": {
     schedule: {
@@ -97,18 +100,33 @@ export class TimetableComponent implements OnInit {
       // course: { title: 'course ', name: "course" },
     },
   };
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit() { 
- 
-    
-  }
+  ngOnInit() {}
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === "Editor") {
-      if (!args.element.querySelector('.custom-field-row')) {
-        this.createCustomDropdown(args, this.resourceDataSourceTeacher, "Text", "Id", "Teacher")
-        this.createCustomDropdown(args, this.resourceDataSourceRoom, "Text", "Id", "Room/Hall")
-        this.createCustomDropdown(args, this.resourceDataSourceCourse, "Text", "Id", "Course")
+      if (!args.element.querySelector(".custom-field-row")) {
+        this.createCustomDropdown(
+          args,
+          this.resourceDataSourceTeacher,
+          "Text",
+          "Id",
+          "Teacher"
+        );
+        this.createCustomDropdown(
+          args,
+          this.resourceDataSourceRoom,
+          "Text",
+          "Id",
+          "Room/Hall"
+        );
+        this.createCustomDropdown(
+          args,
+          this.resourceDataSourceCourse,
+          "Text",
+          "Id",
+          "Course"
+        );
       }
     }
   }
@@ -144,5 +162,14 @@ export class TimetableComponent implements OnInit {
     inputEle.setAttribute("name", "EventType");
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateformComponent, {
+      width: "250px",
+      data: {},
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
+  }
 }

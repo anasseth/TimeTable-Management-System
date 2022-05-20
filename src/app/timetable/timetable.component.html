@@ -20,14 +20,14 @@
 
 <div class="header">
   <div class="header-right">
+    <a class="create" (click)="openDialog()">Create</a>
     <a>Students</a>
     <a>Courses</a>
-    <!-- <a >About</a> -->
   </div>
   <a class="logo">Logout</a>
 
 </div>
-<div class="example-container">
+<!-- <div class="example-container">
   <mat-form-field>
     <input matInput placeholder="Input">
   </mat-form-field>
@@ -37,7 +37,7 @@
   </mat-form-field>
 
   
-</div>
+</div> -->
 
 <div class="control-section">
   <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
