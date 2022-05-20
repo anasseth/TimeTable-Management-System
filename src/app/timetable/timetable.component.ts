@@ -63,7 +63,7 @@ export class TimetableComponent implements OnInit {
     { Text: "Prof. John Den", Id: 2 },
     { Text: "Prof. Daniel J. Post", Id: 3 },
     { Text: "Prof. Walter M. Espinal", Id: 4 },
-    { Text: "Assistant Prof. Don S. Croteau", Id: 4 },
+    { Text: "Assistant Prof. Don S. Croteau", Id: 5 },
   ];
 
   public resourceDataSourceCourse: Object[] = [
@@ -102,16 +102,15 @@ export class TimetableComponent implements OnInit {
   ngOnInit() { }
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === "Editor") {
-      this.createCustomDropdown(args, this.resourceDataSourceTeacher, "Text", "Id", "Teacher")
-      this.createCustomDropdown(args, this.resourceDataSourceRoom, "Text", "Id", "Room/Hall")
-      this.createCustomDropdown(args, this.resourceDataSourceCourse, "Text", "Id", "Course")
-
+      if (!args.element.querySelector('.custom-field-row')) {
+        this.createCustomDropdown(args, this.resourceDataSourceTeacher, "Text", "Id", "Teacher")
+        this.createCustomDropdown(args, this.resourceDataSourceRoom, "Text", "Id", "Room/Hall")
+        this.createCustomDropdown(args, this.resourceDataSourceCourse, "Text", "Id", "Course")
+      }
     }
   }
 
   createCustomDropdown(args, dataSource, propName1, propName2, dropDownName) {
-    console.log(args)
-
     let row: HTMLElement = createElement("div", {
       className: "custom-field-row",
     });
@@ -140,75 +139,7 @@ export class TimetableComponent implements OnInit {
 
     dropDownList.appendTo(inputEle);
     inputEle.setAttribute("name", "EventType");
-
   }
 
-  //   let dropDownList1: DropDownList = new DropDownList({
-  //     dataSource: [
-  //       { text: "Math", value: "Math" },
-  //       { text: "Physics", value: "Physics" },
-  //       { text: "Chemistry", value: "Chemistry" },
-  //       { text: "Computer", value: "Computer" },
-  //       { text: "Geometry", value: "Geometry" },
-
-  //     ],
-  //     fields: { text: "text", value: "value" },
-  //     value: (<{ [key: string]: Object }>args.data).EventType as string,
-  //     floatLabelType: "Always",
-  //     placeholder: "Course",
-  //   });
-  //   dropDownList1.appendTo(inputEle);
-  //   inputEle.setAttribute("name", "EventType");
-  // }
-
-  // let dropDownList2: DropDownList = new DropDownList({
-  //   dataSource: [
-  //     { text: "Room 1", value: "Room 1" },
-  //     { text: "Room 2", value: "Room 2" },
-  //     { text: "Room 3", value: "Room 3" },
-  //     { text: "Room 4", value: "Room 4" },
-  //     { text: "Room 5", value: "Room 5" },
-
-  //   ],
-  //   fields: { text: "text", value: "value" },
-  //   value: (<{ [key: string]: Object }>args.data).EventType as string,
-  //   floatLabelType: "Always",
-  //   placeholder: "Room",
-  // });
-  // dropDownList2.appendTo(inputEle);
-  // inputEle.setAttribute("name", "EventType");
-
-
-
-
-  // template field
-  // onPopupOpen(args: PopupOpenEventArgs): void {
-  //   if (args.type === 'Editor') {
-  //     let statusElement: HTMLInputElement = args.element.querySelector('#EventType') as HTMLInputElement;
-  //     if (!statusElement.classList.contains('e-dropdownlist')) {
-  //       let dropDownListObject: DropDownList = new DropDownList({
-  //         placeholder: 'Choose Type', value: statusElement.value,
-  //         dataSource: ['Exam', 'Test', 'Class', 'Lab', 'Result',]
-  //       });
-  //       dropDownListObject.appendTo(statusElement);
-  //       statusElement.setAttribute('name', 'EventType');
-
-  //       let dropDownListObject1: DropDownList = new DropDownList({
-  //         placeholder: 'teacher', value: statusElement.value,
-  //         dataSource: ['t1', 't2', 't3', 't4', 't5',]
-  //       });
-  //       dropDownListObject1.appendTo(statusElement);
-  //       statusElement.setAttribute('name', 'EventType1');
-  //     }
-  //     let startElement: HTMLInputElement = args.element.querySelector('#StartTime') as HTMLInputElement;
-  //     if (!startElement.classList.contains('e-datetimepicker')) {
-  //       new DateTimePicker({ value: new Date(startElement.value) || new Date() }, startElement);
-  //     }
-  //     let endElement: HTMLInputElement = args.element.querySelector('#EndTime') as HTMLInputElement;
-  //     if (!endElement.classList.contains('e-datetimepicker')) {
-  //       new DateTimePicker({ value: new Date(endElement.value) || new Date() }, endElement);
-  //     }
-  //   }
-  // }
 
 }
