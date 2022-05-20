@@ -99,7 +99,10 @@ export class TimetableComponent implements OnInit {
   };
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+ 
+    
+  }
   onPopupOpen(args: PopupOpenEventArgs): void {
     if (args.type === "Editor") {
       if (!args.element.querySelector('.custom-field-row')) {
