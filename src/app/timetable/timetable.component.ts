@@ -52,10 +52,10 @@ export class TimetableComponent implements OnInit {
   // public showWeekend: Boolean = true;
 
   public resourceDataSourceType: Object[] = [
-    { Text: "Exam", Id: 1, Color: "#1aaa55" },
-    { Text: "Test", Id: 2, Color: "#357cd2" },
-    { Text: "Class", Id: 3, Color: "#d0291e" },
-    { Text: "Lab", Id: 4, Color: "#e5e510" },
+    { Text: "Exam", Id: 1, Color: "#e5b7e5" },
+    { Text: "Test", Id: 2, Color: "#a1ffe0" },
+    { Text: "Class", Id: 3, Color: "#b1b5ff" },
+    { Text: "Lab", Id: 4, Color: "#fffbe7" },
   ];
 
   public resourceDataSourceTeacher: Object[] = [
@@ -94,52 +94,91 @@ export class TimetableComponent implements OnInit {
       // course: { title: 'course ', name: "course" },
     },
   };
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
-  // onPopupOpen(args: PopupOpenEventArgs): void {
-  //   if (args.type === "Editor") {
-  //     if (!args.element.querySelector(".custom-field-row")) {
-  //       let row: HTMLElement = createElement("div", {
-  //         className: "custom-field-row",
-  //       });
-  //       let formElement: HTMLElement =
-  //         args.element.querySelector(".e-schedule-form");
-  //       formElement.firstChild.insertBefore(
-  //         row,
-  //         args.element.querySelector(".e-title-location-row")
-  //       );
-  //       let container: HTMLElement = createElement("div", {
-  //         className: "custom-field-container",
-  //       });
-  //       let inputEle: HTMLInputElement = createElement("input", {
-  //         className: "e-field",
-  //         attrs: { name: "EventType" },
-  //       }) as HTMLInputElement;
-  //       container.appendChild(inputEle);
-  //       row.appendChild(container);
-  //       let dropDownList: DropDownList = new DropDownList({
-  //         dataSource: [
-  //           { text: "Exam", value: "Exam" },
-  //           { text: "Test", value: "Test" },
-  //           { text: "Class", value: "Class" },
-  //           { text: "Lab", value: "Lab" },
-  //           { text: "Meeting", value: "Meeting" },
-  //           { text: "Result", value: "Result" },
-  //           { text: "Event", value: "Event" },
-  //         ],
-  //         fields: { text: "text", value: "value" },
-  //         value: (<{ [key: string]: Object }>args.data).EventType as string,
-  //         floatLabelType: "Always",
-  //         placeholder: "Type",
-  //       });
+  ngOnInit() { }
+  onPopupOpen(args: PopupOpenEventArgs): void {
+    if (args.type === "Editor") {
+      if (!args.element.querySelector(".custom-field-row")) {
+        let row: HTMLElement = createElement("div", {
+          className: "custom-field-row",
+        });
+        let formElement: HTMLElement =
+          args.element.querySelector(".e-schedule-form");
+        formElement.firstChild.insertBefore(
+          row,
+          args.element.querySelector(".e-title-location-row")
+        );
+        let container: HTMLElement = createElement("div", {
+          className: "custom-field-container",
+        });
+        let inputEle: HTMLInputElement = createElement("input", {
+          className: "e-field",
+          attrs: { name: "EventType" },
+        }) as HTMLInputElement;
+        container.appendChild(inputEle);
+        row.appendChild(container);
+        let dropDownList: DropDownList = new DropDownList({
+          dataSource: [
+            { text: "John", value: "John" },
+            { text: "Adam", value: "Adam" },
+            { text: "philip", value: "philip" },
+            { text: "jeff", value: "jeff" },
+            { text: "Bezoz", value: "Bezoz" },
 
-  //       dropDownList.appendTo(inputEle);
-  //       inputEle.setAttribute("name", "EventType");
-  //     }
-  //   }
+          ],
+          fields: { text: "text", value: "value" },
+          value: (<{ [key: string]: Object }>args.data).EventType as string,
+          floatLabelType: "Always",
+          placeholder: "Teacher",
+        });
 
+        dropDownList.appendTo(inputEle);
+        inputEle.setAttribute("name", "EventType");
+
+      }
+
+    }
+
+  }
+
+  //   let dropDownList1: DropDownList = new DropDownList({
+  //     dataSource: [
+  //       { text: "Math", value: "Math" },
+  //       { text: "Physics", value: "Physics" },
+  //       { text: "Chemistry", value: "Chemistry" },
+  //       { text: "Computer", value: "Computer" },
+  //       { text: "Geometry", value: "Geometry" },
+
+  //     ],
+  //     fields: { text: "text", value: "value" },
+  //     value: (<{ [key: string]: Object }>args.data).EventType as string,
+  //     floatLabelType: "Always",
+  //     placeholder: "Course",
+  //   });
+  //   dropDownList1.appendTo(inputEle);
+  //   inputEle.setAttribute("name", "EventType");
   // }
+
+  // let dropDownList2: DropDownList = new DropDownList({
+  //   dataSource: [
+  //     { text: "Room 1", value: "Room 1" },
+  //     { text: "Room 2", value: "Room 2" },
+  //     { text: "Room 3", value: "Room 3" },
+  //     { text: "Room 4", value: "Room 4" },
+  //     { text: "Room 5", value: "Room 5" },
+
+  //   ],
+  //   fields: { text: "text", value: "value" },
+  //   value: (<{ [key: string]: Object }>args.data).EventType as string,
+  //   floatLabelType: "Always",
+  //   placeholder: "Room",
+  // });
+  // dropDownList2.appendTo(inputEle);
+  // inputEle.setAttribute("name", "EventType");
+
+
+
 
   // template field
   // onPopupOpen(args: PopupOpenEventArgs): void {
@@ -148,10 +187,17 @@ export class TimetableComponent implements OnInit {
   //     if (!statusElement.classList.contains('e-dropdownlist')) {
   //       let dropDownListObject: DropDownList = new DropDownList({
   //         placeholder: 'Choose Type', value: statusElement.value,
-  //         dataSource: ['Exam', 'Test', 'Class', 'Lab',  'Result', ]
+  //         dataSource: ['Exam', 'Test', 'Class', 'Lab', 'Result',]
   //       });
   //       dropDownListObject.appendTo(statusElement);
   //       statusElement.setAttribute('name', 'EventType');
+
+  //       let dropDownListObject1: DropDownList = new DropDownList({
+  //         placeholder: 'teacher', value: statusElement.value,
+  //         dataSource: ['t1', 't2', 't3', 't4', 't5',]
+  //       });
+  //       dropDownListObject1.appendTo(statusElement);
+  //       statusElement.setAttribute('name', 'EventType1');
   //     }
   //     let startElement: HTMLInputElement = args.element.querySelector('#StartTime') as HTMLInputElement;
   //     if (!startElement.classList.contains('e-datetimepicker')) {
@@ -163,4 +209,5 @@ export class TimetableComponent implements OnInit {
   //     }
   //   }
   // }
+
 }

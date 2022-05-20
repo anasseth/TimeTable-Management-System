@@ -13,7 +13,7 @@
 
 
 body {
-    margin: 0;
+    margin     : 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,62 +32,85 @@ body {
 }
 
 
-.e-schedule .e-schedule-toolbar .e-active-view .e-tbar-btn-text, .e-schedule .e-schedule-toolbar .e-active-view .e-icons {
-    color: #ffffff !important;
+.e-schedule .e-schedule-toolbar .e-active-view .e-tbar-btn-text,
+.e-schedule .e-schedule-toolbar .e-active-view .e-icons {
+    color           : #ffffff !important;
     background-color: rgb(0, 17, 255) !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    border-radius: 20px !important;
+    padding-left    : 10px !important;
+    padding-right   : 10px !important;
+    border-radius   : 20px !important;
 }
 
 .e-toolbar .e-tbar-btn:hover {
-    background: rgba(0, 0, 0, 0.12);
-    border-color: rgba(0, 0, 0, 0.12);
+    background   : rgba(0, 0, 0, 0.12);
+    border-color : rgba(0, 0, 0, 0.12);
     border-radius: 20px;
-    color: rgba(0, 0, 0, 0.87);
+    color        : rgba(0, 0, 0, 0.87);
 }
 
-.e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-icons.e-btn-icon  {
-    margin: 0;
-    min-width: 25px;
-    width: auto;
+.e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-icons.e-btn-icon {
+    margin          : 0;
+    min-width       : 25px;
+    width           : auto;
     background-color: rgb(0, 17, 255) !important;
-    color: white !important;
-    border-radius: 20px !important;
+    color           : white !important;
+    border-radius   : 20px !important;
 }
 
 
 /* start add title popup */
-.e-btn.e-flat.e-primary, .e-css.e-btn.e-flat.e-primary {
+.e-btn.e-flat.e-primary,
+.e-css.e-btn.e-flat.e-primary {
     background-color: transparent;
-    border-color: transparent;
-    color: #ffffff;
+    border-color    : transparent;
+    color           : #ffffff;
     background-color: blue;
-    border-radius: 20px;
+    border-radius   : 20px;
 }
 
 .e-quick-popup-wrapper .e-popup-footer .e-event-details {
-    border: none;
-    margin-right: 8px;
-    right: auto;
-    text-transform: capitalize;
-    text-transform: uppercase;
+    border          : none;
+    margin-right    : 8px;
+    right           : auto;
+    text-transform  : capitalize;
+    text-transform  : uppercase;
     background-color: #0000ff17;
-    color: black;
-    border-radius: 20px;
+    color           : black;
+    border-radius   : 20px;
 }
 
 /* end add title popup */
-.e-float-input:not(.e-input-group) .e-float-line::before, .e-float-input:not(.e-input-group) .e-float-line::after, .e-float-input:not(.e-input-group) .e-float-line::before, .e-float-input:not(.e-input-group) .e-float-line::after, .e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::before, .e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::after, .e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::before, .e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::after {
+.e-float-input:not(.e-input-group) .e-float-line::before,
+.e-float-input:not(.e-input-group) .e-float-line::after,
+.e-float-input:not(.e-input-group) .e-float-line::before,
+.e-float-input:not(.e-input-group) .e-float-line::after,
+.e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::before,
+.e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::after,
+.e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::before,
+.e-float-input.e-control-wrapper:not(.e-input-group) .e-float-line::after {
     background: #0378d5;
 }
 
-.e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after {
+.e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before,
+.e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after,
+.e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before,
+.e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after,
+.e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before,
+.e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after,
+.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before,
+.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after {
     background: #0378d5;
 }
 
 
-.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after {
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before,
+.e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after,
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before,
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after {
     background: #0378d5;
 }
 
@@ -103,14 +126,38 @@ body {
 }
  */
 
- .e-calendar .e-content td.e-today.e-selected:hover span.e-day, .e-calendar .e-content td.e-selected:hover span.e-day, .e-calendar .e-content td.e-selected.e-focused-date span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-today.e-selected:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-selected:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td.e-selected.e-focused-date span.e-day {
+.e-calendar .e-content td.e-today.e-selected:hover span.e-day,
+.e-calendar .e-content td.e-selected:hover span.e-day,
+.e-calendar .e-content td.e-selected.e-focused-date span.e-day,
+.e-bigger.e-small .e-calendar .e-content td.e-today.e-selected:hover span.e-day,
+.e-bigger.e-small .e-calendar .e-content td.e-selected:hover span.e-day,
+.e-bigger.e-small .e-calendar .e-content td.e-selected.e-focused-date span.e-day {
     background-color: #0378d5;
-    color: #fff;
+    color           : #fff;
 }
 
-.e-schedule .e-month-view .e-current-date .e-date-header, .e-schedule .e-month-agenda-view .e-current-date .e-date-header {
+.e-schedule .e-month-view .e-current-date .e-date-header,
+.e-schedule .e-month-agenda-view .e-current-date .e-date-header {
     background-color: #0378d5;
-    border-radius: 50%;
-    color: #fff;
-    width: 20px;
+    border-radius   : 50%;
+    color           : #fff;
+    width           : 20px;
 }
+
+/* input field hide */
+.e-float-input:not(.e-input-group),
+.e-float-input.e-control-wrapper:not(.e-input-group) {
+    display: none;
+}
+
+.e-schedule .e-vertical-view .e-day-wrapper .e-appointment .e-appointment-details {
+    flex      : auto;
+    padding   : 0 4px;
+    text-align: left;
+    color     : black;
+}
+
+/* .custom-field-container {
+    position: relative !important;
+    top     : 40px !important;
+} */

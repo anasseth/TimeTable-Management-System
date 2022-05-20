@@ -41,15 +41,7 @@
       <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSourceType'
         textField='Text' idField='Id' colorField='Color'>
       </e-resource>
-      <!-- <e-resource field='ConferenceId1' title='Teacher / Prefessor' name='Conferences1'
-        [dataSource]='resourceDataSourceTeacher' textField='Text1' idField='Id1' colorField='Color1'>
-      </e-resource>
-      <e-resource field='ConferenceId2' title='Course' name='Conferences2' [dataSource]='resourceDataSourceCourse'
-        textField='Text2' idField='Id2' colorField='Color2'>
-      </e-resource>
-      <e-resource field='ConferenceId3' title='Room ' name='Conferences3' [dataSource]='resourceDataSourceRoom'
-        textField='Text3' idField='Id3' colorField='Color3'>
-      </e-resource> -->
+
     </e-resources>
   </ejs-schedule>
 </div>
@@ -58,82 +50,26 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <ejs-schedule width='100%' height='550px' [selectedDate]="selectedDate"
-  [eventSettings]="eventSettings" > </ejs-schedule>` -->
-
-
-
-<!-- <ejs-schedule width='100%' height='100vh' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
+<!-- <ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
   [showQuickInfo]='showQuickInfo' (popupOpen)='onPopupOpen($event)'>
   <ng-template #editorTemplate>
     <table class="custom-event-editor" width="100%" cellpadding="5">
       <tbody>
-
-        <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSource'
-        textField='Text' idField='Id' colorField='Color'>
-      </e-resource>
         <tr>
-          <td class="e-textlabel">Type</td>
-          <td colspan="4">
-            <input type="text" id="EventType" name="EventType" class="e-field" style="width: 100%" />
-
-            
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Course</td>
-          <td colspan="4">
-            <input id="Course" class="e-field e-input" type="text" value="" name="Course" style="width: 100%"
-              placeholder="Course" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Course Code</td>
-          <td colspan="4">
-            <input id="Course Code" class="e-field e-input" type="text" value="" name="Course Code"
-              style="width: 100%" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Teacher</td>
-          <td colspan="4">
-            <input id="Teacher" class="e-field e-input" type="text" value="" name="Teacher" style="width: 100%" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Subject</td>
+          <td class="e-textlabel">Summary</td>
           <td colspan="4">
             <input id="Subject" class="e-field e-input" type="text" value="" name="Subject" style="width: 100%" />
           </td>
         </tr>
-
         <tr>
-          <td class="e-textlabel">Agenda</td>
+          <td class="e-textlabel">Choose Type</td>
           <td colspan="4">
-            <input id="Agenda" class="e-field e-input" type="text" value="" name="Agenda" style="width: 100%" />
+            <input type="text" id="EventType" name="EventType" class="e-field" style="width: 100%" />
           </td>
         </tr>
+
+
+
         <tr>
           <td class="e-textlabel">From</td>
           <td colspan="4">
@@ -146,7 +82,22 @@
             <input id="EndTime" class="e-field" type="text" name="EndTime" />
           </td>
         </tr>
-     
+        <tr>
+          <td class="e-textlabel">Reason</td>
+          <td colspan="4">
+            <textarea id="Description" class="e-field e-input" name="Description" rows="3" cols="50"
+              style="width: 100%; height: 60px !important; resize: vertical"></textarea>
+          </td>
+        </tr>
+        <tr>
+
+          <e-resources>
+            <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSourceType'
+              textField='Text' idField='Id' colorField='Color'>
+            </e-resource>
+
+          </e-resources>
+        </tr>
 
       </tbody>
     </table>
