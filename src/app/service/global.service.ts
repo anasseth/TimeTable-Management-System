@@ -11,7 +11,7 @@ import { Teacher } from '../models/teacher';
 export class GlobalService {
 
   teacherData: Teacher[] = [];
-  StudentData: Student[] = [];
+  studentData: Student[] = [];
   courseData: Course[] = [];
   classData: Class[] = [];
   groupData: Group[] = [];

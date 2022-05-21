@@ -51,9 +51,10 @@ L10n.load({
   ],
 })
 export class TimetableComponent implements OnInit {
+  [x: string]: any;
   ej: any;
   activeRole: string = "student"; // "student" || "teacher" || "admin"
-  access:string="View Only";
+  access: string = "View Only";
   allowMultiRowSelection: boolean = false;
   allowResizing: boolean = false;
   allowMultiDrag: boolean = false;
@@ -126,10 +127,10 @@ export class TimetableComponent implements OnInit {
     },
   ];
 
-  constructor(public router: Router, public dailog:MatDialog) {}
+  constructor(public router: Router, public dailog: MatDialog) { }
 
   ngOnInit() {
-    var userData:any = JSON.parse(localStorage.getItem("userData"));
+    var userData: any = JSON.parse(localStorage.getItem("userData"));
     if (userData == null || userData == undefined) {
       this.router.navigate(["/"]);
     } else {
@@ -353,21 +354,29 @@ export class TimetableComponent implements OnInit {
     inputEle.setAttribute("name", dropDownName);
   }
 
-  logOut(){
+  logOut() {
     localStorage.clear()
     this.router.navigate(["/"])
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateformComponent, {
+    const dialogRef = this.dailog.open(CreateformComponent, {
       width: "500px",
       height: "500px",
 
       data: {},
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
-    });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log("The dialog was closed");
+    // });
   }
+
+  // onNoClick(): void {
+  //   this.dialogRef.close();
+
+
+
+  // }
+
 }

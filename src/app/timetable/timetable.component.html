@@ -20,9 +20,9 @@
 
 <div class="header">
   <div class="header-right">
+    <a class="create" (click)="openDialog()">Create</a>
     <a>{{this.access}}</a>
     <a style="text-transform:capitalize;">{{this.activeRole}}</a>
-    <a style="text-transform:capitalize;">Create</a>
   </div>
   <a class="logo" (click)="logOut()">Logout</a>
 </div>
@@ -40,7 +40,10 @@
 
 <div class="control-section">
   <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
-  [allowResizing]="allowResizing" [allowMultiRowSelection]="allowMultiRowSelection"  [allowMultiDrag]="allowMultiDrag" [selectedDate]="selectedDate" [workHours]="scheduleHours" [showWeekend]="showWeekend" [eventSettings]='eventSettings' [currentView]="currentView" (popupOpen)="onPopupOpen($event)" (popupClose)="onPopupClose($event)">
+    [allowResizing]="allowResizing" [allowMultiRowSelection]="allowMultiRowSelection" [allowMultiDrag]="allowMultiDrag"
+    [selectedDate]="selectedDate" [workHours]="scheduleHours" [showWeekend]="showWeekend"
+    [eventSettings]='eventSettings' [currentView]="currentView" (popupOpen)="onPopupOpen($event)"
+    (popupClose)="onPopupClose($event)">
     <e-views>
       <e-view option="Day"></e-view>
       <e-view option="Week"></e-view>
@@ -48,7 +51,8 @@
       <e-view option="Month"></e-view>
     </e-views>
     <e-resources>
-      <e-resource field='Color' title='Color' name='Color' textField='name' idField='id' colorField='color' [dataSource]='resourceDataColor'>
+      <e-resource field='Color' title='Color' name='Color' textField='name' idField='id' colorField='color'
+        [dataSource]='resourceDataColor'>
       </e-resource>
     </e-resources>
   </ejs-schedule>

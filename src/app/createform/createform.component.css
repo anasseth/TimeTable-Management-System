@@ -1,27 +1,51 @@
-h3{
+h3 {
     position: relative;
-    top: -15px;
+    top     : -15px;
 }
 
-.center{
-    display: flex;
+.center {
+    display        : flex;
     justify-content: center;
 }
 
 
-.mattab{
+.mattab {
     margin-top: 15px;
 }
 
 
-.btn{
-    float: right;
-    /* position: absolute; */
-    /* right: 70px; */
-    /* top: 89px; */
-    margin-top: 10%;
-    margin-right: 10%;
+.btn {
+    float           : right;
+    /* position     : absolute; */
+    /* right        : 70px; */
+    /* top          : 89px; */
+    margin-top      : 10%;
+    margin-right    : 10%;
     background-color: skyblue;
-    border: 0;
-    padding: 10px;
+    border          : 0;
+    padding         : 10px;
+}
+
+
+
+.green {
+    background-color: rgb(47, 255, 158);
+    color           : rgb(0, 0, 0);
+    border          : 0;
+    padding         : 10px;
+    width           : 50%;
+    font-weight     : bold;
+    letter-spacing  : 2px;
+    float           : right;
+}
+
+.dis {
+    background-color: rgb(212, 212, 212);
+    color           : black;
+    border          : 0;
+    padding         : 10px;
+    width           : 50%;
+    font-weight     : bold;
+    letter-spacing  : 2px;
+    float           : right;
 }
