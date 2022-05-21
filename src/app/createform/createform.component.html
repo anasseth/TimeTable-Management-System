@@ -5,11 +5,11 @@
   <mat-dialog-content>
     <div class="center">
       <mat-chip-list>
-        <mat-chip (click)="gotoform('teacher')" color="accent" selected>Teacher</mat-chip>
-        <mat-chip (click)="gotoform('student')" color="warn" selected>Student</mat-chip>
-        <mat-chip (click)="gotoform('course')" color="primary" selected>Course</mat-chip>
-        <mat-chip (click)="gotoform('class')" color="accent" selected>Class</mat-chip>
-        <mat-chip (click)="gotoform('group')" color="warn" selected>Group</mat-chip>
+        <mat-chip (click)="gotoform('teacher')" style="background-color: #1c96c5; color: white;">Teacher</mat-chip>
+        <mat-chip (click)="gotoform('student')" style="background-color: 	#20a7db; color: white;">Student</mat-chip>
+        <mat-chip (click)="gotoform('course')" style="background-color: 	#62c1e5; color: white;">Course</mat-chip>
+        <mat-chip (click)="gotoform('class')" style="background-color: 	#a0d9ef; color: white;">Class</mat-chip>
+        <mat-chip (click)="gotoform('group')" style="background-color: #cfecf7; color: #1c96c5;">Group</mat-chip>
       </mat-chip-list>
     </div>
     <div class="mattab">
@@ -20,7 +20,8 @@
 
             <form class="example-form" [formGroup]="myForm1">
 
-              <div><label style="color: black;font-weight: 900;">{{show}}</label></div>
+              <div><label style="font-weight: 900;text-transform: capitalize;color:#1c96c5;    position: relative;
+                top: -12px;">{{show}}</label></div>
               <div *ngIf="show == 'teacher'">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Name" type="text" formControlName="name" required>

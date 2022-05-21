@@ -49,3 +49,32 @@ h3 {
     letter-spacing  : 2px;
     float           : right;
 }
+
+
+.red {
+    padding-left    : 8px;
+    padding-right   : 8px;
+    padding-top     : 5px;
+    padding-bottom  : 5px;
+    background-color: rgb(163, 32, 32);
+    float           : right;
+    color           : white;
+    border          : 0;
+    border-radius   : 20px;
+    cursor          : pointer;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
+    background-color: #409bff !important;
+    color           : #fff;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
+    background-color: #20a7db;
+    color           : #fff;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+    background-color: #62c1e5;
+    color           : #fff;
+}
