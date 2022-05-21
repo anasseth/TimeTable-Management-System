@@ -97,7 +97,7 @@
               <mat-form-field style="margin-left: 12%;" class="example-full-width">
                 <input matInput placeholder="Description">
               </mat-form-field>
-           
+
 
 
             </div>
@@ -109,7 +109,11 @@
 
 
       </mat-tab>
-      <mat-tab label="View list">View list</mat-tab>
+      <mat-tab label="View list">
+        View list
+        <br>
+        <div *ngFor="let item of getCurrentData()"></div>
+      </mat-tab>
 
     </mat-tab-group>
   </div>
