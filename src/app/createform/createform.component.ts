@@ -9,8 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 export class CreateformComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<CreateformComponent>) {}
 
+  show: string = "teacher";
+
   ngOnInit() {}
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  gotoform(text) {
+    this.show = text;
   }
 }

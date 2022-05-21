@@ -4,11 +4,11 @@
   </div>
   <div class="center">
     <mat-chip-list>
-      <mat-chip color="accent" selected>Teacher</mat-chip>
-      <mat-chip color="warn" selected>Student</mat-chip>
-      <mat-chip color="primary" selected>Course</mat-chip>
-      <mat-chip color="accent" selected>Class</mat-chip>
-      <mat-chip color="warn" selected>Group</mat-chip>
+      <mat-chip (click)="gotoform('teacher')" color="accent" selected>Teacher</mat-chip>
+      <mat-chip (click)="gotoform('student')" color="warn" selected>Student</mat-chip>
+      <mat-chip (click)="gotoform('course')" color="primary" selected>Course</mat-chip>
+      <mat-chip (click)="gotoform('class')" color="accent" selected>Class</mat-chip>
+      <mat-chip (click)="gotoform('group')" color="warn" selected>Group</mat-chip>
     </mat-chip-list>
   </div>
   <div class="mattab">
@@ -18,20 +18,89 @@
         <div style="margin-top: 25px;
         ">
           <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="name">
-            </mat-form-field>
+            <div *ngIf="show == 'teacher'">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name">
+              </mat-form-field>
 
-            <mat-form-field style="margin-left: 12%;" class="example-full-width">
-              <input matInput placeholder="Email">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Subject">
-            </mat-form-field>
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Email">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Subject">
+              </mat-form-field>
 
-            <mat-form-field style="margin-left: 12%;" class="example-full-width">
-              <input matInput placeholder="Password">
-            </mat-form-field>
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Password">
+              </mat-form-field>
+            </div>
+            <div *ngIf="show == 'student'">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Email">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Subject">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Password">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 0%;" class="example-full-width">
+                <input matInput placeholder="Group">
+              </mat-form-field>
+            </div>
+            <div *ngIf="show == 'course'">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name">
+              </mat-form-field>
+
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Type">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 0%;" class="example-full-width">
+                <input matInput placeholder="Description">
+              </mat-form-field>
+
+
+            </div>
+
+            <div *ngIf="show == 'class'">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Room">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Type">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Description">
+              </mat-form-field>
+
+
+            </div>
+            <div *ngIf="show == 'group'">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name">
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 12%;" class="example-full-width">
+                <input matInput placeholder="Description">
+              </mat-form-field>
+           
+
+
+            </div>
           </form>
 
           <div> <button class="btn">Save</button>
