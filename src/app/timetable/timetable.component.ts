@@ -126,7 +126,7 @@ export class TimetableComponent implements OnInit {
     },
   ];
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, public dailog:MatDialog) {}
 
   ngOnInit() {
     var userData:any = JSON.parse(localStorage.getItem("userData"));
@@ -356,5 +356,18 @@ export class TimetableComponent implements OnInit {
   logOut(){
     localStorage.clear()
     this.router.navigate(["/"])
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateformComponent, {
+      width: "500px",
+      height: "500px",
+
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
   }
 }
