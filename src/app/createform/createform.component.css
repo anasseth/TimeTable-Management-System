@@ -1,0 +1,27 @@
+h3{
+    position: relative;
+    top: -15px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+
+.mattab{
+    margin-top: 15px;
+}
+
+
+.btn{
+    float: right;
+    /* position: absolute; */
+    /* right: 70px; */
+    /* top: 89px; */
+    margin-top: 10%;
+    margin-right: 10%;
+    background-color: skyblue;
+    border: 0;
+    padding: 10px;
+}

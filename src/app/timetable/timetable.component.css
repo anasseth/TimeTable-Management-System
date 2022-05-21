@@ -6,26 +6,26 @@
 }
 
 .header a {
-    float          : right;
-    color          : white;
-    text-align     : center;
-    padding        : 12px;
-    text-decoration: none;
-    font-size      : 18px;
-    margin-right: 20px;
-    background-color:#20a7db ;
-    line-height    : 25px;
-    border-radius  : 4px;
+    float           : right;
+    color           : white;
+    text-align      : center;
+    padding         : 12px;
+    text-decoration : none;
+    font-size       : 18px;
+    margin-right    : 20px;
+    background-color: #20a7db;
+    line-height     : 25px;
+    border-radius   : 4px;
 }
 
 .header a.logo {
-    font-size       : 16px;
-    font-weight     : bold;
-    background-color: #d12b2be0;
+    font-size          : 16px;
+    font-weight        : bold;
+    background-color   : #d12b2be0;
     /* border-radius   : 10px; */
-    color           : white;
-    height          : 25px;
-    width           : 70px;
+    color              : white;
+    height             : 25px;
+    width              : 70px;
 }
 
 .header a:hover {
@@ -58,3 +58,10 @@
     position: relative !important;
     top     : 40px !important;
 } */
+
+
+.create {
+    background-color: skyblue;
+    /* border       : 1px blue  solid; */
+    border-radius   : 50px !important;
+}
