@@ -1,8 +1,8 @@
 <div class="background" style="height: 100vh">
   <div class="wrapper fadeInDown">
     <div id="formContent">
-      <h2 class="active">LOGIN</h2>
-      <h2 class="inactive underlineHover">AREA</h2>
+      <h2 class="active">CONNEXION</h2>
+      <h2 class="inactive underlineHover">RÉGION</h2>
       <div class="fadeIn first"></div>
       <form>
         <input
@@ -10,7 +10,7 @@
           id="login"
           class="fadeIn second"
           name="login"
-          placeholder="User Email"
+          placeholder="Courriel de l'utilisateur"
           [(ngModel)]="email"
         />
         <input
@@ -19,7 +19,7 @@
           id="password"
           class="fadeIn third"
           name="login"
-          placeholder="Password"
+          placeholder="Mot de Passe"
           [(ngModel)]="password"
         />
         <input
@@ -28,7 +28,7 @@
           id="login"
           class="fadeIn second"
           name="login"
-          placeholder="Old Password"
+          placeholder="Ancien Mot de Passe"
           [(ngModel)]="password"
         />
         <input
@@ -37,7 +37,7 @@
           id="login"
           class="fadeIn second"
           name="login"
-          placeholder="New Password"
+          placeholder="Nouveau Mot de Passe"
           [(ngModel)]="newPassword"
         />
         <button
@@ -46,12 +46,12 @@
           value="Log In"
           (click)="login()"
         >
-          SUBMIT
+          Connexion
         </button>
       </form>
       <div id="formFooter">
         <a class="underlineHover" (click)="activeChangePassword()"
-          >Forgot Password?</a
+          >Mot de Passe Oublié?</a
         >
       </div>
     </div>

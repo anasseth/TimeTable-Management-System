@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { GlobalService } from "../service/global.service";
 
 @Component({
   selector: "app-login",
@@ -18,25 +19,33 @@ export class LoginComponent implements OnInit {
       email: "admin@org.com",
       password: "admin12345",
       userRole: "admin",
-      access: "Full Access",
+      access: "Accès total",
     },
     {
+      name: "Prof. Tom Hall",
       email: "prof.tomhall@org.com",
       password: "tom12345",
       userRole: "teacher",
-      access: "Edit Access",
+      access: "Modifier l'Accès",
     },
     {
+      name: "John",
       email: "student75909@org.com",
       password: "BatchYear2020",
       userRole: "student",
-      access: "View Only",
+      access: "Afficher Uniquement",
     },
   ];
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, public globalService: GlobalService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userEmailData = [
+      ...this.userEmailData,
+      ...this.globalService.resourceDataSourceTeacher,
+      ...this.globalService.resourceStudentData
+    ]
+  }
 
   activeChangePassword() {
     this.isChangePassword = true;
@@ -57,16 +66,16 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("userData", JSON.stringify(dataVar[0]));
             this.router.navigate(["/timetable"]);
           } else {
-            alert("Email or Password is Incorrect");
+            alert("E-mail ou Mot de Passe Incorrect");
           }
         } else {
-          alert("Email or Password is Incorrect");
+          alert("E-mail ou Mot de Passe Incorrect");
         }
       } else {
-        alert("Email or Password is Incorrect");
+        alert("E-mail ou Mot de Passe Incorrect");
       }
     } else if (this.isChangePassword) {
-      alert("Password Changing is Not Supported At This Time");
+      alert("Le changement de mot de passe n'est pas pris en charge pour le moment");
     }
   }
 }

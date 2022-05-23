@@ -1,161 +1,315 @@
 <div>
   <div>
-    <h3>Create Form</h3>
+    <h3>Créer un Formulaire</h3>
   </div>
   <mat-dialog-content>
     <div class="center">
       <mat-chip-list>
-        <mat-chip (click)="gotoform('teacher')" style="background-color: #1c96c5; color: white;">Teacher</mat-chip>
-        <mat-chip (click)="gotoform('student')" style="background-color: 	#20a7db; color: white;">Student</mat-chip>
-        <mat-chip (click)="gotoform('course')" style="background-color: 	#62c1e5; color: white;">Course</mat-chip>
-        <mat-chip (click)="gotoform('class')" style="background-color: 	#a0d9ef; color: white;">Class</mat-chip>
-        <mat-chip (click)="gotoform('group')" style="background-color: #cfecf7; color: #1c96c5;">Group</mat-chip>
+        <mat-chip
+          (click)="gotoform('teacher')"
+          style="background-color: #1c96c5; color: white"
+          >Professeur</mat-chip
+        >
+        <mat-chip
+          (click)="gotoform('student')"
+          style="background-color: #20a7db; color: white"
+          >Élève</mat-chip
+        >
+        <mat-chip
+          (click)="gotoform('course')"
+          style="background-color: #62c1e5; color: white"
+          >Cours</mat-chip
+        >
+        <mat-chip
+          (click)="gotoform('class')"
+          style="background-color: #a0d9ef; color: white"
+          >Classe</mat-chip
+        >
+        <mat-chip
+          (click)="gotoform('group')"
+          style="background-color: #cfecf7; color: #1c96c5"
+          >Grouper</mat-chip
+        >
       </mat-chip-list>
     </div>
     <div class="mattab">
       <mat-tab-group mat-align-tabs="center">
-        <mat-tab label="Add List">
-
-          <div style="margin-top: 25px;  ">
-
-            <form class="example-form" [formGroup]="myForm1">
-
-              <div><label style="font-weight: 900;text-transform: capitalize;color:#1c96c5;    position: relative;
-                top: -12px;">{{show}}</label></div>
+        <mat-tab label="Ajouter La Liste">
+          <div style="margin-top: 25px">
+            <form class="example-form" [formGroup]="formData1">
+              <div>
+                <label
+                  style="
+                    font-weight: 900;
+                    text-transform: capitalize;
+                    color: #1c96c5;
+                    position: relative;
+                    top: -12px;
+                  "
+                  >{{ show }}</label
+                >
+              </div>
               <div *ngIf="show == 'teacher'">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" type="text" formControlName="name" required>
+                  <input
+                    matInput
+                    placeholder="Nom"
+                    type="text"
+                    formControlName="name"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Email" type="email" formControlName="email" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Email"
+                    type="email"
+                    formControlName="email"
+                    required
+                  />
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Subject" type="text" formControlName="subject" required>
+                  <mat-label>Choisissez le Cours</mat-label>
+                  <mat-select formControlName="course">
+                    <mat-option
+                      [value]="item.id"
+                      *ngFor="
+                        let item of this.globalService.resourceDataSourceCourse
+                      "
+                      >{{ item.name }}</mat-option
+                    >
+                  </mat-select>
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Password" type="password" formControlName="password" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Mot de Passe"
+                    type="password"
+                    formControlName="password"
+                    required
+                  />
                 </mat-form-field>
               </div>
-              <div>
-              </div>
+              <div></div>
             </form>
 
-
             <div *ngIf="show == 'student'">
-              <form class="example-form" [formGroup]="myForm2">
-
+              <form class="example-form" [formGroup]="formData2">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" type="text" formControlName="name" required>
+                  <input
+                    matInput
+                    placeholder="Nom"
+                    type="text"
+                    formControlName="name"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Email" type="email" formControlName="email" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Email"
+                    type="email"
+                    formControlName="email"
+                    required
+                  />
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Subject" type="text" formControlName="subject" required>
+                  <input
+                    matInput
+                    placeholder="Cours"
+                    type="text"
+                    formControlName="course"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Password" formControlName="password" type="password" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Mot de passe"
+                    formControlName="password"
+                    type="password"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 0%;" class="example-full-width">
-                  <input matInput placeholder="Group" type="text" formControlName="group" required>
+                <mat-form-field
+                  style="margin-left: 0%"
+                  class="example-full-width"
+                >
+                  <!-- <input
+                    matInput
+                    placeholder="Group"
+                    type="text"
+                    formControlName="group"
+                    required
+                  /> -->
+                  <mat-label>Choisissez le Groupe</mat-label>
+                  <mat-select formControlName="group">
+                    <mat-option
+                      [value]="item.id"
+                      *ngFor="
+                        let item of this.globalService.resourceDataClassGroup
+                      "
+                      >{{ item.name }}</mat-option
+                    >
+                  </mat-select>
                 </mat-form-field>
-
               </form>
-
             </div>
 
-
-
-
             <div *ngIf="show == 'course'">
-              <form class="example-form" [formGroup]="myForm3">
-
+              <form class="example-form" [formGroup]="formData3">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" type="text" formControlName="name" required>
+                  <input
+                    matInput
+                    placeholder="Nom"
+                    type="text"
+                    formControlName="name"
+                    required
+                  />
                 </mat-form-field>
 
-
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Type" type="text" formControlName="type" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Taper"
+                    type="text"
+                    formControlName="type"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 0%;" class="example-full-width">
-                  <input matInput placeholder="Description" type="text" formControlName="desp" required>
+                <mat-form-field
+                  style="margin-left: 0%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="La Description"
+                    type="text"
+                    formControlName="desp"
+                    required
+                  />
                 </mat-form-field>
               </form>
-
-
             </div>
 
             <div *ngIf="show == 'class'">
-              <form class="example-form" [formGroup]="myForm4">
-
+              <form class="example-form" [formGroup]="formData4">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" type="text" formControlName="name" required>
+                  <input
+                    matInput
+                    placeholder="Nom"
+                    type="text"
+                    formControlName="name"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Room" type="text" formControlName="room" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="Room"
+                    type="text"
+                    formControlName="room"
+                    required
+                  />
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Type" type="text" formControlName="type" required>
+                  <input
+                    matInput
+                    placeholder="Taper"
+                    type="text"
+                    formControlName="type"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Description" type="text" formControlName="desp" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="La description"
+                    type="text"
+                    formControlName="desp"
+                    required
+                  />
                 </mat-form-field>
-
               </form>
-
             </div>
             <div *ngIf="show == 'group'">
-
-              <form class="example-form" [formGroup]="myForm5">
-
+              <form class="example-form" [formGroup]="formData5">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Name" type="text" formControlName="name" required>
+                  <input
+                    matInput
+                    placeholder="Nom"
+                    type="text"
+                    formControlName="name"
+                    required
+                  />
                 </mat-form-field>
 
-                <mat-form-field style="margin-left: 12%;" class="example-full-width">
-                  <input matInput placeholder="Description" type="text" formControlName="desp" required>
+                <mat-form-field
+                  style="margin-left: 12%"
+                  class="example-full-width"
+                >
+                  <input
+                    matInput
+                    placeholder="La description"
+                    type="text"
+                    formControlName="desp"
+                    required
+                  />
                 </mat-form-field>
-
               </form>
-
-
             </div>
 
-            <div> <button class="btn" (click)="onSubmit()">Save</button>
-            </div>
+            <div><button class="btn" (click)="onSubmit()">Save</button></div>
           </div>
-
-
         </mat-tab>
-        <mat-tab label="View list">
-          <table style="width:100%; margin-top:20px">
+        <mat-tab label="Afficher La Liste">
+          <table style="width: 100%; margin-top: 20px">
             <tbody>
-              <tr *ngFor="let list of getCurrentData(); let i = index">
+              <tr
+                *ngFor="let list of getCurrentData(); let i = index"
+                style="height: 40px"
+              >
                 <td>{{ i + 1 }}</td>
                 <td>{{ list.name }}</td>
-                <!-- <td>{{ list.email }}</td>
-                <td>{{ list.subject }}</td>
-                <td>{{ list.password }}</td> -->
-
-                <!-- <td>{{ list.address }}</td> -->
-                <!-- <td>{{ list.email }}</td> -->
-                <td><button class="red" (click)="onDelete(i)"><i class="fa fa-trash" aria-hidden="true"></i>
-                  </button></td>
+                <td>
+                  <button class="red" (click)="onDelete(i)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
           <!-- <div *ngFor="let item of getCurrentData()"></div> -->
         </mat-tab>
-
       </mat-tab-group>
     </div>
   </mat-dialog-content>

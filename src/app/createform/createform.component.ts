@@ -9,51 +9,60 @@ import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
   styleUrls: ["./createform.component.css"],
 })
 export class CreateformComponent implements OnInit {
-  public myForm1: FormGroup;
-  public myForm2: FormGroup;
-  public myForm3: FormGroup;
-  public myForm4: FormGroup;
-  public myForm5: FormGroup;
+  public formData1: FormGroup;
+  public formData2: FormGroup;
+  public formData3: FormGroup;
+  public formData4: FormGroup;
+  public formData5: FormGroup;
 
   show: string = "teacher";
 
   ngOnInit() { }
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
-  constructor(public dialogRef: MatDialogRef<CreateformComponent>, public globalService: GlobalService, private fb: FormBuilder) {
+
+  constructor(
+    public dialogRef: MatDialogRef<CreateformComponent>,
+    public globalService: GlobalService,
+    private fb: FormBuilder) {
 
 
-    this.myForm1 = this.fb.group({
+    this.formData1 = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
-      subject: ['', Validators.required],
+      course: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+      userRole: [''],
+      access: [''],
     });
 
-
-    this.myForm2 = this.fb.group({
+    this.formData2 = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
-      subject: ['', Validators.required],
+      course: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       group: ['', Validators.required],
+      userRole: [''],
+      access: [''],
     });
 
-    this.myForm3 = this.fb.group({
+    this.formData3 = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
       type: ['', Validators.required],
       desp: ['', Validators.required],
 
     });
-    this.myForm4 = this.fb.group({
+    this.formData4 = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
       room: ['', Validators.required],
       type: ['', Validators.required],
       desp: ['', Validators.required],
 
     });
-    this.myForm5 = this.fb.group({
+    this.formData5 = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
       desp: ['', Validators.required],
 
@@ -62,61 +71,70 @@ export class CreateformComponent implements OnInit {
 
   onDelete(i) {
     if (this.show == "teacher") {
-      this.globalService.teacherData.splice(i, 1);
+      this.globalService.resourceDataSourceTeacher.splice(i, 1);
     }
     else if (this.show == "student") {
-      this.globalService.studentData.splice(i, 1);
+      this.globalService.resourceStudentData.splice(i, 1);
     }
     else if (this.show == "course") {
-      return this.globalService.courseData.splice(i, 1)
+      return this.globalService.resourceDataSourceCourse.splice(i, 1)
     }
     else if (this.show == "class") {
-      return this.globalService.classData.splice(i, 1)
+      return this.globalService.resourceDataSourceRoom.splice(i, 1)
     }
     else if (this.show == "group") {
-      return this.globalService.groupData.splice(i, 1)
+      return this.globalService.resourceDataClassGroup.splice(i, 1)
     }
   }
 
   onSubmit() {
     if (this.show == "teacher") {
-      this.globalService.teacherData.push(this.myForm1.value);
-      this.myForm1.reset();
+      this.formData1.controls.id.setValue(this.getRandomID())
+      this.formData1.controls.userRole.setValue("teacher")
+      this.formData1.controls.access.setValue("Modifier l'Accès")
+      this.globalService.resourceDataSourceTeacher.push(this.formData1.value);
+      this.formData1.reset();
     }
     else if (this.show == "student") {
-      this.globalService.studentData.push(this.myForm2.value);
-      this.myForm2.reset();
+      this.formData2.controls.id.setValue(this.getRandomID())
+      this.formData2.controls.userRole.setValue("student")
+      this.formData2.controls.access.setValue("Afficher Uniquement")
+      this.globalService.resourceStudentData.push(this.formData2.value);
+      this.formData2.reset();
     }
     else if (this.show == "course") {
-      this.globalService.courseData.push(this.myForm3.value);
-      this.myForm3.reset();
+      this.formData3.controls.id.setValue(this.getRandomID())
+      this.globalService.resourceDataSourceCourse.push(this.formData3.value);
+      this.formData3.reset();
 
     }
     else if (this.show == "class") {
-      this.globalService.classData.push(this.myForm4.value);
-      this.myForm4.reset();
+      this.formData4.controls.id.setValue(this.getRandomID())
+      this.globalService.resourceDataSourceRoom.push(this.formData4.value);
+      this.formData4.reset();
     }
     else if (this.show == "group") {
-      this.globalService.groupData.push(this.myForm5.value);
-      this.myForm5.reset();
+      this.formData5.controls.id.setValue(this.getRandomID())
+      this.globalService.resourceDataClassGroup.push(this.formData5.value);
+      this.formData5.reset();
     }
   }
 
   getCurrentData() {
     if (this.show == "teacher") {
-      return this.globalService.teacherData
+      return this.globalService.resourceDataSourceTeacher
     }
     else if (this.show == "student") {
-      return this.globalService.studentData
+      return this.globalService.resourceStudentData
     }
     else if (this.show == "course") {
-      return this.globalService.courseData
+      return this.globalService.resourceDataSourceCourse
     }
     else if (this.show == "class") {
-      return this.globalService.classData
+      return this.globalService.resourceDataSourceRoom
     }
     else if (this.show == "group") {
-      return this.globalService.groupData
+      return this.globalService.resourceDataClassGroup
     }
   }
 
@@ -124,8 +142,11 @@ export class CreateformComponent implements OnInit {
     this.show = text;
   }
 
-
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  getRandomID() {
+    return Math.floor(Math.random() * 999999) + 1;
   }
 }

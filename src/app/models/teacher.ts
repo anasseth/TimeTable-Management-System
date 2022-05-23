@@ -1,9 +1,7 @@
-export class Teacher{
-
-    public id : number;
-    public name : string;
-    public email : string;
-    public password : string;
-    public subject : string;
-
+export class Teacher {
+    id?: number;
+    name?: string;
+    email?: string;
+    password?: string;
+    subject?: string;
 }

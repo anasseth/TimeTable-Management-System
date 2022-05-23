@@ -24,15 +24,16 @@ import { L10n } from "@syncfusion/ej2-base";
 import { Router } from "@angular/router";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { CreateformComponent } from "../createform/createform.component";
+import { GlobalService } from "../service/global.service";
 
 L10n.load({
   "en-US": {
     schedule: {
-      addTitle: "Add Title",
-      saveButton: "Add",
-      cancelButton: "Close",
-      deleteButton: "Remove",
-      newEvent: "Create Time Table",
+      addTitle: "Ajouter Un Titre",
+      saveButton: "Ajouter",
+      cancelButton: "Proche",
+      deleteButton: "Éliminer",
+      newEvent: "Créer Un Horaire",
     },
   },
 });
@@ -58,6 +59,7 @@ export class TimetableComponent implements OnInit {
   allowMultiRowSelection: boolean = false;
   allowResizing: boolean = false;
   allowMultiDrag: boolean = false;
+  userInfo: any;
   public showWeekend: boolean = false;
   public selectedDate: Date = new Date();
   public scheduleHours: WorkHoursModel = {
@@ -66,129 +68,21 @@ export class TimetableComponent implements OnInit {
     end: "20:00",
   };
 
-  dummyData = [
-    {
-      Type: 1,
-      Teacher: 1,
-      "Room/Hall": 1,
-      Course: 1,
-      Group: 1,
-      Subject:
-        "Introduction To Financial Accounting (Exam) By Prof. Tom Hall of Group A",
-      StartTime: "2022-05-20T03:30:00.000Z",
-      EndTime: "2022-05-20T05:00:00.000Z",
-      IsAllDay: false,
-      StartTimezone: null,
-      EndTimezone: null,
-      Color: 1,
-      RecurrenceRule: null,
-      Id: 1,
-      RecurrenceException: null,
-      RecurrenceID: null,
-    },
-    {
-      Type: 3,
-      Teacher: 2,
-      "Room/Hall": 2,
-      Course: 1,
-      Group: 2,
-      Subject:
-        "Introduction To Financial Accounting (Class) By Prof. John Den of Group B",
-      StartTime: "2022-05-17T04:30:00.000Z",
-      EndTime: "2022-05-17T06:00:00.000Z",
-      IsAllDay: false,
-      StartTimezone: null,
-      EndTimezone: null,
-      Color: 3,
-      RecurrenceRule: null,
-      Id: 2,
-      RecurrenceException: null,
-      RecurrenceID: null,
-    },
-    {
-      Type: 2,
-      Teacher: 1,
-      "Room/Hall": 1,
-      Course: 4,
-      Group: 3,
-      Subject:
-        "Natural Language Processing (Test) By Prof. Tom Hall of Group C",
-      StartTime: "2022-05-18T06:00:00.000Z",
-      EndTime: "2022-05-18T07:30:00.000Z",
-      IsAllDay: false,
-      StartTimezone: null,
-      EndTimezone: null,
-      Color: 2,
-      RecurrenceRule: null,
-      Id: 3,
-      RecurrenceException: null,
-      RecurrenceID: null,
-      Guid: "a9254294-ce4b-ad50-fa2d-b2a7990b939c",
-    },
-  ];
 
-  constructor(public router: Router, public dailog: MatDialog) { }
+  constructor(public router: Router, public dailog: MatDialog, public globalService: GlobalService) { }
 
   ngOnInit() {
     var userData: any = JSON.parse(localStorage.getItem("userData"));
     if (userData == null || userData == undefined) {
       this.router.navigate(["/"]);
     } else {
+      this.userInfo = userData;
       this.activeRole = userData.userRole
       this.access = userData.access;
       this.setUserAccess(this.activeRole);
-      this.eventSettings.dataSource = this.dummyData;
+      this.eventSettings.dataSource = this.globalService.timeTableData;
     }
   }
-
-  public resourceDataColor = [
-    { name: "Red", id: 1, color: "#e42b4e" },
-    { name: "Purple", id: 2, color: "#be29ec" },
-    { name: "Yellow", id: 3, color: "#fcb529" },
-    { name: "Blue", id: 4, color: "#20a7db" },
-  ];
-
-  public resourceDataSourceType = [
-    { name: "Exam", id: 1, Color: "#d93858" },
-    { name: "Test", id: 2, Color: "#fc6f9e" },
-    { name: "Class", id: 3, Color: "#525bfa" },
-    { name: "Lab", id: 4, Color: "#ada163" },
-  ];
-
-  public resourceDataSourceTeacher = [
-    { name: "Prof. Tom Hall", id: 1 },
-    { name: "Prof. John Den", id: 2 },
-    { name: "Prof. Daniel J. Post", id: 3 },
-    { name: "Prof. Walter M. Espinal", id: 4 },
-    { name: "Assistant Prof. Don S. Croteau", id: 5 },
-  ];
-
-  public resourceDataSourceCourse = [
-    { name: "Introduction To Financial Accounting", id: 1 },
-    { name: "Probablity & Stats", id: 2 },
-    { name: "GeoEconomics", id: 3 },
-    { name: "Natural Language Processing", id: 4 },
-    { name: "Networking Data Layer", id: 5 },
-  ];
-
-  public resourceDataClassGroup = [
-    { name: "Group A", id: 1 },
-    { name: "Group B", id: 2 },
-    { name: "Group C", id: 3 },
-    { name: "Group D", id: 4 },
-    { name: "Group E", id: 5 },
-  ];
-
-  public resourceDataSourceRoom = [
-    { name: "Room# 54", id: 1 },
-    { name: "Room# 55", id: 2 },
-    { name: "Room# 56", id: 3 },
-    { name: "Room# 57", id: 4 },
-    { name: "Room# 58", id: 5 },
-    { name: "Auditorium Hall", id: 6 },
-    { name: "Computational Lab# 1", id: 7 },
-    { name: "Computational Lab# 2", id: 8 },
-  ];
 
   public eventSettings: EventSettingsModel = {
     dataSource: [],
@@ -237,21 +131,21 @@ export class TimetableComponent implements OnInit {
 
   getVariableName(variable?: any, dataObject?: any) {
     if (dataObject == "Teacher") {
-      return this.resourceDataSourceTeacher.filter(
+      return this.globalService.resourceDataSourceTeacher.filter(
         (x: any) => x.id == variable
       )[0].name;
     } else if (dataObject == "Group") {
-      return this.resourceDataClassGroup.filter((x: any) => x.id == variable)[0]
+      return this.globalService.resourceDataClassGroup.filter((x: any) => x.id == variable)[0]
         .name;
     } else if (dataObject == "Course") {
-      return this.resourceDataSourceCourse.filter(
+      return this.globalService.resourceDataSourceCourse.filter(
         (x: any) => x.id == variable
       )[0].name;
     } else if (dataObject == "Room") {
-      return this.resourceDataSourceRoom.filter((x: any) => x.id == variable)[0]
+      return this.globalService.resourceDataSourceRoom.filter((x: any) => x.id == variable)[0]
         .name;
     } else if (dataObject == "Type") {
-      return this.resourceDataSourceType.filter((x: any) => x.id == variable)[0]
+      return this.globalService.resourceDataSourceType.filter((x: any) => x.id == variable)[0]
         .name;
     } else {
       return null;
@@ -271,42 +165,42 @@ export class TimetableComponent implements OnInit {
         if (!args.element.querySelector(".custom-field-row")) {
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceType,
+            this.globalService.resourceDataSourceType,
             "name",
             "id",
-            "Type",
+            "Taper",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceTeacher,
+            this.globalService.resourceDataSourceTeacher,
             "name",
             "id",
-            "Teacher",
+            "Professeur",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceRoom,
+            this.globalService.resourceDataSourceRoom,
             "name",
             "id",
-            "Room/Hall",
+            "Salle/Salle",
             false
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceCourse,
+            this.globalService.resourceDataSourceCourse,
             "name",
             "id",
-            "Course",
+            "Cours",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataClassGroup,
+            this.globalService.resourceDataClassGroup,
             "name",
             "id",
-            "Group",
+            "Grouper",
             false
           );
         }
@@ -355,6 +249,7 @@ export class TimetableComponent implements OnInit {
   }
 
   logOut() {
+    this.saveTimeTableDataInService();
     localStorage.clear()
     this.router.navigate(["/"])
   }
@@ -363,20 +258,11 @@ export class TimetableComponent implements OnInit {
     const dialogRef = this.dailog.open(CreateformComponent, {
       width: "500px",
       height: "500px",
-
       data: {},
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log("The dialog was closed");
-    // });
   }
 
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-
-
-
-  // }
-
+  saveTimeTableDataInService() {
+    this.globalService.timeTableData = this.eventSettings.dataSource;
+  }
 }

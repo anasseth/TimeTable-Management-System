@@ -24,6 +24,8 @@ import {
   MatDialogModule,
   MatChipsModule,
   MatTabsModule,
+  MatSelectModule,
+  MatOptionModule
 } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -44,7 +46,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatChipsModule,
     MatTabsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [
     DayService,

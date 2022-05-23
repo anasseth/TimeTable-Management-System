@@ -1,7 +1,7 @@
 export class Student {
-  public id: number;
-  public name: string;
-  public email: string;
-  public password: string;
-  public group: string;
+  id?: number;
+  name?: string;
+  email?: string;
+  password?: string;
+  group?: string;
 }

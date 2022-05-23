@@ -1,9 +1,7 @@
-export class Class{
-
-    public id : number;
-    public name : string;
-    public room : string;
-    public type : string;
-    public description : string;
-
+export class Class {
+    id?: number;
+    name?: string;
+    room?: string;
+    type?: string;
+    description?: string;
 }

@@ -1,8 +1,5 @@
-export class Group{
-
-    public id : number;
-    public name : string;
-    public description : string;
-
-
+export class Group {
+    id?: number;
+    name?: string;
+    description?: string;
 }

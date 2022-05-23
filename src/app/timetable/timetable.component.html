@@ -1,49 +1,33 @@
-<!--
-<ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
-  (popupOpen)='onPopupOpen($event)'>
-
-  <e-views>
-    <e-view option="Day"></e-view>
-    <e-view option="Week">
-    </e-view>
-    <e-view option="Month"></e-view>
-    <e-view option="Agenda"></e-view>
-  </e-views>
-  <e-resources>
-    <e-resource field='GroupId' title='Owner' name='Owners' [dataSource]='dataSource' textField='GroupText'
-      idField='GroupId' colorField='GroupColor'>
-    </e-resource>
-  </e-resources>
-</ejs-schedule> -->
-
-
-
 <div class="header">
   <div class="header-right">
-    <a class="create" (click)="openDialog()">Create</a>
-    <a>{{this.access}}</a>
-    <a style="text-transform:capitalize;">{{this.activeRole}}</a>
+    <a class="create" (click)="openDialog()" *ngIf="this.activeRole == 'admin'"
+      >Créer</a
+    >
+    <a>{{ this.access }}</a>
+    <a style="text-transform: capitalize">{{ this.activeRole }}</a>
+    <a class="userName" *ngIf="this.activeRole != 'admin'">{{
+      this.activeRole != "admin" ? this.userInfo.name : "Admin"
+    }}</a>
   </div>
-  <a class="logo" (click)="logOut()">Logout</a>
+  <a class="logo" (click)="logOut()">Se Déconnecter</a>
 </div>
-<!-- <div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  
-</div> -->
 
 <div class="control-section">
-  <ejs-schedule #scheduleObj cssClass='schedule-group-editing' width='100%' height='100vh' [group]="group"
-    [allowResizing]="allowResizing" [allowMultiRowSelection]="allowMultiRowSelection" [allowMultiDrag]="allowMultiDrag"
-    [selectedDate]="selectedDate" [workHours]="scheduleHours" [showWeekend]="showWeekend"
-    [eventSettings]='eventSettings' [currentView]="currentView" (popupOpen)="onPopupOpen($event)"
-    (popupClose)="onPopupClose($event)">
+  <ejs-schedule
+    #scheduleObj
+    cssClass="schedule-group-editing"
+    width="100%"
+    height="100vh"
+    [allowResizing]="allowResizing"
+    [allowMultiRowSelection]="allowMultiRowSelection"
+    [allowMultiDrag]="allowMultiDrag"
+    [selectedDate]="selectedDate"
+    [workHours]="scheduleHours"
+    [showWeekend]="showWeekend"
+    [eventSettings]="eventSettings"
+    (popupOpen)="onPopupOpen($event)"
+    (popupClose)="onPopupClose($event)"
+  >
     <e-views>
       <e-view option="Day"></e-view>
       <e-view option="Week"></e-view>
@@ -51,67 +35,16 @@
       <e-view option="Month"></e-view>
     </e-views>
     <e-resources>
-      <e-resource field='Color' title='Color' name='Color' textField='name' idField='id' colorField='color'
-        [dataSource]='resourceDataColor'>
+      <e-resource
+        field="Color"
+        title="Color"
+        name="Color"
+        textField="name"
+        idField="id"
+        colorField="color"
+        [dataSource]="this.globalService.resourceDataColor"
+      >
       </e-resource>
     </e-resources>
   </ejs-schedule>
 </div>
-
-
-
-
-
-<!-- <ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' [eventSettings]='eventSettings'
-  [showQuickInfo]='showQuickInfo' (popupOpen)='onPopupOpen($event)'>
-  <ng-template #editorTemplate>
-    <table class="custom-event-editor" width="100%" cellpadding="5">
-      <tbody>
-        <tr>
-          <td class="e-textlabel">Summary</td>
-          <td colspan="4">
-            <input id="Subject" class="e-field e-input" type="text" value="" name="Subject" style="width: 100%" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Choose Type</td>
-          <td colspan="4">
-            <input type="text" id="EventType" name="EventType" class="e-field" style="width: 100%" />
-          </td>
-        </tr>
-
-
-
-        <tr>
-          <td class="e-textlabel">From</td>
-          <td colspan="4">
-            <input id="StartTime" class="e-field" type="text" name="StartTime" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">To</td>
-          <td colspan="4">
-            <input id="EndTime" class="e-field" type="text" name="EndTime" />
-          </td>
-        </tr>
-        <tr>
-          <td class="e-textlabel">Reason</td>
-          <td colspan="4">
-            <textarea id="Description" class="e-field e-input" name="Description" rows="3" cols="50"
-              style="width: 100%; height: 60px !important; resize: vertical"></textarea>
-          </td>
-        </tr>
-        <tr>
-
-          <e-resources>
-            <e-resource field='ConferenceId' title='Type' name='Conferences' [dataSource]='resourceDataSourceType'
-              textField='Text' idField='Id' colorField='Color'>
-            </e-resource>
-
-          </e-resources>
-        </tr>
-
-      </tbody>
-    </table>
-  </ng-template>
-</ejs-schedule> -->
