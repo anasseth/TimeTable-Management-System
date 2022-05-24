@@ -70,7 +70,6 @@ export class TimetableComponent implements OnInit {
     end: "20:00",
   };
 
-
   constructor(public router: Router, public dailog: MatDialog, public globalService: GlobalService) { }
 
   ngOnInit() {
@@ -159,49 +158,57 @@ export class TimetableComponent implements OnInit {
       "DataSource : ",
       JSON.stringify(this.eventSettings.dataSource, undefined, 3)
     );
+    console.log(args)
+    console.log(this.globalService.resourceDataSourceTeacher)
     if (this.activeRole != "student") {
       if (args.type === "QuickInfo") {
         args.cancel = true;
       } else if (args.type === "Editor") {
         var restrictDropdown = this.activeRole == "teacher" ? true : false;
         if (!args.element.querySelector(".custom-field-row")) {
+          console.log("Create Custom Dropdown")
           this.createCustomDropdown(
             args,
             this.globalService.resourceDataSourceType,
             "name",
             "id",
+            "Type",
             "Taper",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.globalService.resourceDataSourceTeacher,
+            this.resourceDataSourceTeacher,
             "name",
             "id",
+            "Teacher",
             "Professeur",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.globalService.resourceDataSourceRoom,
+            this.resourceDataSourceRoom,
             "name",
             "id",
-            "Salle/Salle",
+            "Room",
+            "Salle",
             false
           );
           this.createCustomDropdown(
             args,
-            this.globalService.resourceDataSourceCourse,
+            this.resourceDataSourceCourse,
             "name",
             "id",
+            "Course",
             "Cours",
             restrictDropdown
           );
           this.createCustomDropdown(
             args,
-            this.globalService.resourceDataClassGroup,
+            this.resourceDataClassGroup,
             "name",
             "id",
+            "Group",
             "Grouper",
             false
           );
@@ -218,6 +225,7 @@ export class TimetableComponent implements OnInit {
     propName1,
     propName2,
     dropDownName,
+    fieldName,
     isPopupReadOnly
   ) {
     let row: HTMLElement = createElement("div", {
@@ -244,11 +252,12 @@ export class TimetableComponent implements OnInit {
       fields: { text: propName1, value: propName2 },
       value: (<{ [key: string]: Object }>args.data).EventType as string,
       floatLabelType: "Always",
-      placeholder: dropDownName,
+      placeholder: fieldName,
     });
     dropDownList.appendTo(inputEle);
     inputEle.setAttribute("name", dropDownName);
   }
+
 
   logOut() {
     this.saveTimeTableDataInService();
