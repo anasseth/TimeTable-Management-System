@@ -85,6 +85,7 @@ export class CreateformComponent implements OnInit {
     else if (this.show == "group") {
       return this.globalService.resourceDataClassGroup.splice(i, 1)
     }
+    this.globalService.isDataUpdated = true;
   }
 
   onSubmit() {
@@ -118,6 +119,7 @@ export class CreateformComponent implements OnInit {
       this.globalService.resourceDataClassGroup.push(this.formData5.value);
       this.formData5.reset();
     }
+    this.globalService.isDataUpdated = true;
   }
 
   getCurrentData() {

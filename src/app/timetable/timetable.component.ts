@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import {
   EventSettingsModel,
   TimeScaleModel,
@@ -53,7 +53,9 @@ L10n.load({
 })
 export class TimetableComponent implements OnInit {
   [x: string]: any;
+  @ViewChild('scheduleObj')
   ej: any;
+  public scheduleObj: ScheduleComponent;
   activeRole: string = "student"; // "student" || "teacher" || "admin"
   access: string = "View Only";
   allowMultiRowSelection: boolean = false;
@@ -264,5 +266,13 @@ export class TimetableComponent implements OnInit {
 
   saveTimeTableDataInService() {
     this.globalService.timeTableData = this.eventSettings.dataSource;
+  }
+
+  refresh() {
+    this.scheduleObj.refresh();
+    this.scheduleObj.refreshEvents();
+    this.scheduleObj.refreshLayout();
+    this.scheduleObj.refreshTemplates();
+    this.globalService.isDataUpdated == false;
   }
 }

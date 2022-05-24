@@ -11,7 +11,7 @@ import { Teacher } from '../models/teacher';
 export class GlobalService {
 
   constructor() { }
-
+  isDataUpdated:boolean = false;
   teacherData: Teacher[] = [];
   studentData: Student[] = [];
   courseData: Course[] = [];
