@@ -269,10 +269,7 @@ export class TimetableComponent implements OnInit {
   }
 
   refresh() {
-    this.scheduleObj.refresh();
-    this.scheduleObj.refreshEvents();
-    this.scheduleObj.refreshLayout();
-    this.scheduleObj.refreshTemplates();
-    this.globalService.isDataUpdated == false;
+    document.querySelectorAll(".custom-field-row").forEach(e => e.remove());
+    this.globalService.isDataUpdated = false;
   }
 }
