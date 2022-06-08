@@ -4,7 +4,7 @@
       (click)="refresh()"
       style="background-color: rgb(56, 150, 56)"
       [ngClass]="this.globalService.isDataUpdated == true ? 'heartbeat' : ''"
-      >Refresh</a
+      >Rafraîchir</a
     >
     <a class="create" (click)="openDialog()" *ngIf="this.activeRole == 'admin'"
       >Créer</a

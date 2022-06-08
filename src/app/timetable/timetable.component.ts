@@ -120,14 +120,24 @@ export class TimetableComponent implements OnInit {
     // alert("PopupClose triggered");
     console.log(args);
     console.log("DataSource : ", this.eventSettings.dataSource);
-    args.data.Subject =
-      this.getVariableName(args.data.Course, "Course") +
-      " (" +
-      this.getVariableName(args.data.Type, "Type") +
-      ") By " +
-      this.getVariableName(args.data.Teacher, "Teacher") +
-      " of " +
-      this.getVariableName(args.data.Group, "Group");
+    if (
+      (args.data.Course != undefined && args.data.Course != null)
+      &&
+      (args.data.Type != undefined && args.data.Type != null)
+      &&
+      (args.data.Teacher != undefined && args.data.Teacher != null)
+      &&
+      (args.data.Group != undefined && args.data.Group != null)
+    ) {
+      args.data.Subject =
+        this.getVariableName(args.data.Course, "Course") +
+        " (" +
+        this.getVariableName(args.data.Type, "Type") +
+        ") By " +
+        this.getVariableName(args.data.Teacher, "Teacher") +
+        " of " +
+        this.getVariableName(args.data.Group, "Group");
+    }
   }
 
   getVariableName(variable?: any, dataObject?: any) {
@@ -178,7 +188,7 @@ export class TimetableComponent implements OnInit {
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceTeacher,
+            this.globalService.resourceDataSourceTeacher,
             "name",
             "id",
             "Teacher",
@@ -187,7 +197,7 @@ export class TimetableComponent implements OnInit {
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceRoom,
+            this.globalService.resourceDataSourceRoom,
             "name",
             "id",
             "Room",
@@ -196,7 +206,7 @@ export class TimetableComponent implements OnInit {
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataSourceCourse,
+            this.globalService.resourceDataSourceCourse,
             "name",
             "id",
             "Course",
@@ -205,7 +215,7 @@ export class TimetableComponent implements OnInit {
           );
           this.createCustomDropdown(
             args,
-            this.resourceDataClassGroup,
+            this.globalService.resourceDataClassGroup,
             "name",
             "id",
             "Group",
@@ -267,7 +277,7 @@ export class TimetableComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dailog.open(CreateformComponent, {
-      width: "500px",
+      width: "600px",
       height: "500px",
       data: {},
     });

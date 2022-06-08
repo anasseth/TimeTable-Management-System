@@ -11,7 +11,7 @@ import { Teacher } from '../models/teacher';
 export class GlobalService {
 
   constructor() { }
-  isDataUpdated:boolean = false;
+  isDataUpdated: boolean = false;
   teacherData: Teacher[] = [];
   studentData: Student[] = [];
   courseData: Course[] = [];
@@ -30,52 +30,42 @@ export class GlobalService {
   ];
 
   public resourceDataSourceType = [
-    { name: "Exam", id: 1 },
+    { name: "Examen", id: 1 },
     { name: "Test", id: 2 },
-    { name: "Class", id: 3 },
-    { name: "Lab", id: 4 },
+    { name: "Classe", id: 3 },
+    { name: "Laboratoire", id: 4 },
   ];
 
   public resourceDataSourceTeacher: Teacher[] = [
     { name: "Prof. Tom Hall", id: 1 },
     { name: "Prof. John Den", id: 2 },
-    { name: "Prof. Daniel J. Post", id: 3 },
-    { name: "Prof. Walter M. Espinal", id: 4 },
-    { name: "Assistant Prof. Don S. Croteau", id: 5 },
   ];
 
   public resourceDataSourceCourse: Course[] = [
-    { name: "Introduction To Financial Accounting", id: 1 },
-    { name: "Probablity & Stats", id: 2 },
-    { name: "GeoEconomics", id: 3 },
-    { name: "Natural Language Processing", id: 4 },
-    { name: "Networking Data Layer", id: 5 },
+    { name: "Introduction à La Comptabilité Financière", id: 1 },
+    { name: "Probabilité Et Statistiques", id: 2 },
   ];
 
   public resourceDataClassGroup: Group[] = [
-    { name: "Group A", id: 1 },
-    { name: "Group B", id: 2 },
-    { name: "Group C", id: 3 },
-    { name: "Group D", id: 4 },
-    { name: "Group E", id: 5 },
+    { name: "Grouper A", id: 1, parent_group_id: 1 },
+    { name: "Grouper B", id: 2, parent_group_id: 1 },
+  ];
+
+  public resourceDataParentGroup: Group[] = [
+    { name: "Parent Grouper A", id: 1 },
+    { name: "Parent Grouper B", id: 2 },
   ];
 
   public resourceDataSourceRoom: Class[] = [
-    { name: "Room# 54", id: 1 },
-    { name: "Room# 55", id: 2 },
-    { name: "Room# 56", id: 3 },
-    { name: "Room# 57", id: 4 },
-    { name: "Room# 58", id: 5 },
-    { name: "Auditorium Hall", id: 6 },
-    { name: "Computational Lab# 1", id: 7 },
-    { name: "Computational Lab# 2", id: 8 },
+    { name: "Chambre # 54", id: 1 },
+    { name: "Chambre # 55", id: 2 },
   ];
 
-  timeTableData:any = [
+  timeTableData: any = [
     {
       Type: 1,
       Teacher: 1,
-      "Room/Hall": 1,
+      Room: 1,
       Course: 1,
       Group: 1,
       Subject:
@@ -94,7 +84,7 @@ export class GlobalService {
     {
       Type: 3,
       Teacher: 2,
-      "Room/Hall": 2,
+      Room: 2,
       Course: 1,
       Group: 2,
       Subject:
@@ -109,27 +99,8 @@ export class GlobalService {
       Id: 2,
       RecurrenceException: null,
       RecurrenceID: null,
-    },
-    {
-      Type: 2,
-      Teacher: 1,
-      "Room/Hall": 1,
-      Course: 4,
-      Group: 3,
-      Subject:
-        "Natural Language Processing (Test) By Prof. Tom Hall of Group C",
-      StartTime: "2022-05-18T06:00:00.000Z",
-      EndTime: "2022-05-18T07:30:00.000Z",
-      IsAllDay: false,
-      StartTimezone: null,
-      EndTimezone: null,
-      Color: 2,
-      RecurrenceRule: null,
-      Id: 3,
-      RecurrenceException: null,
-      RecurrenceID: null,
-      Guid: "a9254294-ce4b-ad50-fa2d-b2a7990b939c",
-    },
+    }
   ];
+
 
 }
